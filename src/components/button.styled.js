@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const ButtonStyled = styled.button`
   color: white;
@@ -8,10 +8,21 @@ const ButtonStyled = styled.button`
     return "#f8049c";
   }};
   font-weight: bold;
-  padding: 8px;
-  border-radius: 4px;
+  ${({ large }) => {
+    if (large) {
+      return css`
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.5em;
+      `;
+    }
+    return css`
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 1em;
+    `;
+  }}
   box-shadow: none;
-  font-size: 1em;
   border: none;
   width: 100%;
   display: block;

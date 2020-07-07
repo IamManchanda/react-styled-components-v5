@@ -10,6 +10,7 @@ const App = () => (
     <ButtonStyled secondary>Secondary Button</ButtonStyled>
     <ButtonStyled>Default Button (Primary)</ButtonStyled>
     <ButtonStyled disabled>Disabled Button</ButtonStyled>
+    <ButtonStyled large>Large Button</ButtonStyled>
   </Fragment>
 );
 
