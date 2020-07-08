@@ -16,7 +16,7 @@ const NavHeaderStyled = styled.header`
 
 const MenuStyled = styled.nav`
   display: ${({ open }) => (open ? "block" : "none")};
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   position: absolute;
   width: 100%;
   top: 60px;

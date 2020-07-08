@@ -34,4 +34,4 @@ const ButtonStyled = styled.button`
   }
 `;
 
-export default ButtonStyled;
+export { ButtonStyled };
