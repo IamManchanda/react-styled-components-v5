@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import PageLayout from "layouts/page";
 import { FormStyled, InputStyled } from "components/ui";
+import PasswordInput from "components/password-input";
 
 const LoginPage = () => {
   const [formFields, setFormFields] = useState({
@@ -26,10 +27,8 @@ const LoginPage = () => {
           value={formFields.username}
           onChange={handleInputChange}
         />
-        <InputStyled
-          type="password"
+        <PasswordInput
           name="password"
-          placeholder="Enter Password"
           value={formFields.password}
           onChange={handleInputChange}
         />
