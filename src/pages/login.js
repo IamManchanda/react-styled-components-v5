@@ -1,5 +1,7 @@
 import React from "react";
 
-const LoginPage = () => <div>Login Page</div>;
+import PageLayout from "layouts/page";
+
+const LoginPage = () => <PageLayout>Login Page</PageLayout>;
 
 export default LoginPage;
