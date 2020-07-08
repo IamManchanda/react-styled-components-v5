@@ -20,6 +20,11 @@ const NavHeaderStyled = styled.header`
   border-bottom: 3px solid ${({ theme }) => theme.secondaryColor};
 `;
 
+const BrandStyled = styled.div`
+  font-size: 1.5em;
+  margin-top: 0.4em;
+`;
+
 const MenuStyled = styled.nav`
   display: ${({ open }) => (open ? "block" : "none")};
   font-family: "Open Sans", sans-serif;
@@ -84,6 +89,7 @@ const NavHeader = () => {
   const { id, setTheme } = useContext(ThemeContext);
   return (
     <NavHeaderStyled>
+      <BrandStyled>React Styled</BrandStyled>
       <HamburgerIconStyled onClick={() => setHamburgerOpen((state) => !state)}>
         <div />
         <div />
