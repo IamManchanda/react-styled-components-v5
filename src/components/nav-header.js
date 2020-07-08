@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link as RRDLink } from "react-router-dom";
+import { Link as RRDLink, useLocation } from "react-router-dom";
 
 const NavHeaderStyled = styled.header`
   height: 60px;
@@ -38,15 +38,20 @@ const LinkStyled = styled(Link)`
   font-weight: ${({ isActive }) => (isActive ? "bold" : "normal")};
 `;
 
-const NavHeader = () => (
-  <NavHeaderStyled>
-    <MenuStyled>
-      <LinkStyled to="/">Home</LinkStyled>
-      <LinkStyled to="/login" isActive>
-        Login
-      </LinkStyled>
-    </MenuStyled>
-  </NavHeaderStyled>
-);
+const NavHeader = () => {
+  const { pathname } = useLocation();
+  return (
+    <NavHeaderStyled>
+      <MenuStyled>
+        <LinkStyled to="/" isActive={pathname === "/"}>
+          Home
+        </LinkStyled>
+        <LinkStyled to="/login" isActive={pathname === "/login"}>
+          Login
+        </LinkStyled>
+      </MenuStyled>
+    </NavHeaderStyled>
+  );
+};
 
 export default NavHeader;
