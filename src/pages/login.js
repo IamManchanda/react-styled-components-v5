@@ -1,7 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
 
 import PageLayout from "layouts/page";
-import { FormStyled, InputStyled, ButtonStyled } from "components/ui";
+import {
+  FormStyled,
+  InputStyled,
+  ButtonStyled,
+  LoadingSpinnerStyled,
+} from "components/ui";
 import PasswordInput from "components/password-input";
 
 const LoginPage = () => {
@@ -30,18 +35,24 @@ const LoginPage = () => {
     <PageLayout>
       <h1>Login</h1>
       <FormStyled onSubmit={handleFormSubmit}>
-        <InputStyled
-          type="text"
-          name="username"
-          placeholder="Enter Username"
-          value={formFields.username}
-          onChange={handleInputChange}
-        />
-        <PasswordInput
-          name="password"
-          value={formFields.password}
-          onChange={handleInputChange}
-        />
+        {loading ? (
+          <LoadingSpinnerStyled />
+        ) : (
+          <Fragment>
+            <InputStyled
+              type="text"
+              name="username"
+              placeholder="Enter Username"
+              value={formFields.username}
+              onChange={handleInputChange}
+            />
+            <PasswordInput
+              name="password"
+              value={formFields.password}
+              onChange={handleInputChange}
+            />
+          </Fragment>
+        )}
         <ButtonStyled type="submit" primary large disabled={loading}>
           {loading ? "Loading..." : "Login"}
         </ButtonStyled>
