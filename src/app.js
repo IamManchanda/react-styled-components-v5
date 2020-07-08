@@ -1,16 +1,19 @@
 import React, { Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import GlobalStyled from "./global.styled";
-import { ButtonStyled } from "components";
+import HomePage from "./pages/home";
+import LoginPage from "./pages/login";
 
 const App = () => (
   <Fragment>
     <GlobalStyled />
-    <h1>App</h1>
-    <ButtonStyled>Primary Button</ButtonStyled>
-    <ButtonStyled secondary>Secondary Button</ButtonStyled>
-    <ButtonStyled>Default Button (Primary)</ButtonStyled>
-    <ButtonStyled disabled>Disabled Button</ButtonStyled>
-    <ButtonStyled large>Large Button</ButtonStyled>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={LoginPage} />
+      </Switch>
+    </Router>
   </Fragment>
 );
 
