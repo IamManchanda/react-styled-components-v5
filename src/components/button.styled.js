@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const ButtonStyled = styled.button`
   color: white;
-  background: ${({ primary, secondary }) => {
+  background-color: ${({ primary, secondary }) => {
     if (primary) return "#f8049c";
     if (secondary) return "black";
     return "#f8049c";
@@ -29,7 +29,7 @@ const ButtonStyled = styled.button`
   white-space: none;
 
   &:disabled {
-    background: #eee;
+    background-color: #eee;
     color: #666;
   }
 `;

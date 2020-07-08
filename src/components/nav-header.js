@@ -10,19 +10,32 @@ const NavHeaderStyled = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background: #eee;
+  background-image: linear-gradient(to right, #f8049c, #fdd54f);
+  border-bottom: 3px solid #fdd54f;
 `;
 
 const MenuStyled = styled.nav`
-  display: flex;
-  position: relative;
-  width: initial;
-  border-bottom: none;
-  margin: auto 0 auto auto;
+  display: block;
   font-family: "Open Sans";
-  background: none;
-  left: initial;
-  top: initial;
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  left: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  border-bottom: 3px solid #fdd54f;
+  background-color: white;
+
+  @media (min-width: 768px) {
+    display: flex;
+    position: relative;
+    width: initial;
+    top: initial;
+    left: initial;
+    border-bottom: none;
+    margin: auto 0 auto auto;
+    background: none;
+  }
 `;
 
 const Link = ({ isActive, children, ...otherProps }) => (
@@ -36,6 +49,7 @@ const LinkStyled = styled(Link)`
   box-sizing: border-box;
   margin: auto 0;
   font-weight: ${({ isActive }) => (isActive ? "bold" : "normal")};
+  color: black;
 `;
 
 const NavHeader = () => {
