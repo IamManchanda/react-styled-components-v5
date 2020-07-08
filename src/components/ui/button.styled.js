@@ -4,8 +4,8 @@ const ButtonStyled = styled.button`
   color: white;
   background-color: ${({ primary, secondary }) => {
     if (primary) return "#f8049c";
-    if (secondary) return "black";
-    return "#f8049c";
+    if (secondary) return "#fdd54f";
+    return "black";
   }};
   font-weight: bold;
   ${({ large }) => {

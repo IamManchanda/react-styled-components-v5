@@ -9,6 +9,11 @@ const FormStyled = styled.form`
   box-sizing: border-box;
   color: black;
   border-radius: 4px;
+
+  .alt-text {
+    text-align: center;
+    margin: 12px 0;
+  }
 `;
 
 export { FormStyled };
