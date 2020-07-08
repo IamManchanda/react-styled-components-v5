@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link as RRDLink, useLocation } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const NavHeaderStyled = styled.header`
 `;
 
 const MenuStyled = styled.nav`
-  display: block;
+  display: ${({ open }) => (open ? "block" : "none")};
   font-family: "Open Sans";
   position: absolute;
   width: 100%;
@@ -52,11 +52,35 @@ const LinkStyled = styled(Link)`
   color: black;
 `;
 
+const HamburgerIconStyled = styled.div`
+  margin: auto 0 auto auto;
+  width: 25px;
+  min-width: 25px;
+  padding: 5px;
+
+  > div {
+    height: 3px;
+    background-color: black;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 const NavHeader = () => {
   const { pathname } = useLocation();
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
   return (
     <NavHeaderStyled>
-      <MenuStyled>
+      <HamburgerIconStyled onClick={() => setHamburgerOpen((state) => !state)}>
+        <div />
+        <div />
+        <div />
+      </HamburgerIconStyled>
+      <MenuStyled open={hamburgerOpen}>
         <LinkStyled to="/" isActive={pathname === "/"}>
           Home
         </LinkStyled>
