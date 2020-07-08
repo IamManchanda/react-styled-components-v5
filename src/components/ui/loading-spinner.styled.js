@@ -13,7 +13,7 @@ const loadingSpinnerRotation = keyframes`
 const LoadingSpinnerStyled = styled.div`
   height: 30px;
   width: 30px;
-  border: 1px solid #f8049c;
+  border: 1px solid ${({ theme }) => theme.primaryColor};
   border-radius: 50%;
   border-top: none;
   border-right: none;

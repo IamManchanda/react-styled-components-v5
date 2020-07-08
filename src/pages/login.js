@@ -58,7 +58,7 @@ const LoginPage = () => {
         </ButtonStyled>
         {!loading && (
           <Fragment>
-            <div className="alt-text">or,</div>
+            <div className="alt-text">OR</div>
             <ButtonStyled secondary type="button">
               Register
             </ButtonStyled>

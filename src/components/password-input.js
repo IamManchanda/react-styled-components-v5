@@ -6,7 +6,7 @@ const PasswordInputStyledWrapper = styled.div`
   display: flex;
 
   ~ div {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -28,11 +28,11 @@ const ToggleButtonStyled = styled.div`
   border-left: 0;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.bodyFontColor};
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  color: black;
+  color: ${({ theme }) => theme.bodyBackgroundColor};
 `;
 
 const PasswordInput = (props) => {

@@ -2,10 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyled = createGlobalStyle`
   body {
-    background-color: white;
+    background-color: ${({ theme }) => theme.bodyFontColor};
     min-height: 100vh;
     margin: 0;
-    color: black;
+    color: ${({ theme }) => theme.bodyBackgroundColor};
     font-family: "Kaushan Script", cursive;
   }
 `;

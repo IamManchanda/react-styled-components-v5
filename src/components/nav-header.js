@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState, useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import { Link as RRDLink, useLocation } from "react-router-dom";
+
+import ToggleTheme from "components/toggle-theme";
 
 const NavHeaderStyled = styled.header`
   height: 60px;
@@ -10,8 +12,12 @@ const NavHeaderStyled = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background-image: linear-gradient(to right, #f8049c, #fdd54f);
-  border-bottom: 3px solid #fdd54f;
+  background-image: linear-gradient(
+    to right,
+    ${({ theme }) => theme.primaryColor},
+    ${({ theme }) => theme.secondaryColor}
+  );
+  border-bottom: 3px solid ${({ theme }) => theme.secondaryColor};
 `;
 
 const MenuStyled = styled.nav`
@@ -20,16 +26,18 @@ const MenuStyled = styled.nav`
   position: absolute;
   width: 100%;
   top: 60px;
+  height: calc(100vh - 60px);
   left: 0;
   padding: 8px;
   box-sizing: border-box;
-  border-bottom: 3px solid #fdd54f;
-  background-color: white;
+  border-bottom: 3px solid ${({ theme }) => theme.secondaryColor};
+  background-color: ${({ theme }) => theme.bodyFontColor};
 
   @media (min-width: 768px) {
     display: flex;
     position: relative;
     width: initial;
+    height: initial;
     top: initial;
     left: initial;
     border-bottom: none;
@@ -49,7 +57,7 @@ const LinkStyled = styled(Link)`
   box-sizing: border-box;
   margin: auto 0;
   font-weight: ${({ isActive }) => (isActive ? "bold" : "normal")};
-  color: black;
+  color: ${({ theme }) => theme.bodyBackgroundColor};
 `;
 
 const HamburgerIconStyled = styled.div`
@@ -60,7 +68,7 @@ const HamburgerIconStyled = styled.div`
 
   > div {
     height: 3px;
-    background-color: black;
+    background-color: ${({ theme }) => theme.bodyBackgroundColor};
     margin: 5px 0;
     width: 100%;
   }
@@ -73,6 +81,7 @@ const HamburgerIconStyled = styled.div`
 const NavHeader = () => {
   const { pathname } = useLocation();
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const { id, setTheme } = useContext(ThemeContext);
   return (
     <NavHeaderStyled>
       <HamburgerIconStyled onClick={() => setHamburgerOpen((state) => !state)}>
@@ -87,6 +96,7 @@ const NavHeader = () => {
         <LinkStyled to="/login" isActive={pathname === "/login"}>
           Login
         </LinkStyled>
+        <ToggleTheme isActive={id === "dark"} onToggle={setTheme} />
       </MenuStyled>
     </NavHeaderStyled>
   );

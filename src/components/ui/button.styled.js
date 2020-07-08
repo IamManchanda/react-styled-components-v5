@@ -1,23 +1,27 @@
 import styled, { css } from "styled-components";
 
 const ButtonStyled = styled.button`
-  color: white;
-  background-color: ${({ primary, secondary }) => {
-    if (primary) return "#f8049c";
-    if (secondary) return "#fdd54f";
-    return "black";
+  color: ${({ primary, secondary, theme }) => {
+    if (primary) return theme.bodyFontColor;
+    if (secondary) return theme.bodyBackgroundColor;
+    return theme.bodyFontColor;
+  }};
+  background-color: ${({ primary, secondary, theme }) => {
+    if (primary) return theme.primaryColor;
+    if (secondary) return theme.secondaryColor;
+    return theme.primaryColor;
   }};
   font-weight: bold;
   ${({ large }) => {
     if (large) {
       return css`
-        padding: 10px;
+        padding: 12px;
         border-radius: 5px;
         font-size: 1.5em;
       `;
     }
     return css`
-      padding: 8px;
+      padding: 10px;
       border-radius: 4px;
       font-size: 1em;
     `;
